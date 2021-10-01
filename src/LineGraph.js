@@ -47,7 +47,7 @@ const options = {
   },
 };
 
-
+/*
 const buildChartData3 = (data, casesType = "cases") => {
   let chartData = [];
   const obj = JSON.parse(JSON.stringify(data));
@@ -83,7 +83,8 @@ const buildChartData2 = (data, casesType = "title") => {
   return chartData;
 };
 
-/*
+*/
+
 const buildChartData = (data, casesType = "cases") => {
   let chartData = [];
   let lastDataPoint;
@@ -99,7 +100,7 @@ const buildChartData = (data, casesType = "cases") => {
   }
   return chartData;
 };
-*/
+
 
 /*
   const response = await fetch("http://localhost:8081/api/tqs");
@@ -111,14 +112,14 @@ function LineGraph({ casesType }) {
 
   useEffect(() => {
     const fetchData = async () => {
+      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://localhost:8081/api/tqs")
+      // await fetch("http://localhost:8081/api/tqs")
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          let chartData = buildChartData3(data, casesType);
+          let chartData = buildChartData(data, casesType);
           setData(chartData);
           // console.log(chartData);
           console.log(chartData);

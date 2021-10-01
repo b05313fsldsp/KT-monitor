@@ -108,6 +108,36 @@ function App() {
           <h3>TQS Online Data Monitoring ... </h3>
           <LineGraph />
         </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <LineGraph />
+        </CardContent>
 
 
         {/* Map */}
