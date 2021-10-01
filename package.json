@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.4",
     "chart.js": "^2.9.3",
+    "echarts": "^5.2.1",
+    "echarts-for-react": "^3.0.1",
     "eslint": "^6.6.0",
     "leaflet": "^1.7.1",
     "node-forge": "^0.10.0",

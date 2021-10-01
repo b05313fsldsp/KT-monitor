@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment } from "react";
+import Grid from "@material-ui/core/Grid";
+
+import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 //dc- echarts
@@ -52,6 +55,44 @@ const options = {
   },
 };
 
+/*
+const buildChartData3 = (data, casesType = "cases") => {
+  let chartData = [];
+  const obj = JSON.parse(JSON.stringify(data));
+
+  for (var i=0; i<3; i++) {
+      let newDataPoint = {
+        x: i,
+        y: obj.cases 
+      };
+      chartData.push(newDataPoint);
+  }
+
+  return chartData;
+};
+
+
+const buildChartData2 = (data, casesType = "title") => {
+  let chartData = [];
+  const obj = JSON.parse(JSON.stringify(data));
+
+  // console.log(obj);
+  //console.log(obj.title);
+
+
+  for (var i=0; i<3; i++) {
+      let newDataPoint = {
+        x: i,
+        y: obj.title // dc- to show SPN1761??
+      };
+      chartData.push(newDataPoint);
+  }
+
+  return chartData;
+};
+
+*/
+
 const buildChartData = (data, casesType = "cases") => {
   let chartData = [];
   let lastDataPoint;
@@ -74,7 +115,7 @@ const buildChartData = (data, casesType = "cases") => {
 
 */
 
-function LineGraph({ casesType }) {
+function StateChartline({ casesType }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -117,5 +158,4 @@ function LineGraph({ casesType }) {
   );
 }
 
-export default LineGraph;
-
+export default StateChartline;

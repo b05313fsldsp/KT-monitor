@@ -6,7 +6,10 @@ import Map from './Map';
 import Table from './Table';
 import { sortData } from './utlis';
 //
+import ReactECharts from 'echarts-for-react';
 import LineGraph from './LineGraph'
+import StateChartline from './StateChartline'
+import Page from './Page'
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -116,12 +119,12 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
+          <Page/>        
         </CardContent>
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
+          <StateChart-line />
         </CardContent>
         <CardContent>
          {/* Graphs */}
