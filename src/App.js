@@ -77,6 +77,7 @@ function App() {
       }
   //dc- console.log("CountryInfo", countryInfo)
   // console.log("CountryInfo", countryInfo)
+           // {console.log({TqsGraph.})}
 
   return (
     <div className="app"> {/* BEM naming convention */}
@@ -110,7 +111,8 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <TqsGraph/>        
+          <TqsGraph          
+           />        
         </CardContent>
         <CardContent>
          {/* Graphs */}

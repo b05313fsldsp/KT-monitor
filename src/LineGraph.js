@@ -94,6 +94,7 @@ function LineGraph({ casesType }) {
         });
     };
 
+
     fetchData();
   }, [casesType]);
 

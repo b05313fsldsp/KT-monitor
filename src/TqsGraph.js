@@ -52,7 +52,7 @@ const options = {
   },
 };
 
-const buildChartData = (data, casesType = "id") => {
+const buildChartData = (data, casesType = "TTIMESTAMP") => {
   let chartData = [];
   let lastDataPoint;
   for (let ttime in data.cases) {
@@ -100,13 +100,14 @@ function TqsGraph({ casesType }) {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
       await fetch("http://localhost:8081/api/tqs")
         .then((response) => {
+          console.log(response);
           return response.json();
         })
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
-          // console.log(chartData);
           console.log(chartData);
+         
           // buildChart(chartData);
         });
     };
