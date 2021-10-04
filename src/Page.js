@@ -6,7 +6,7 @@ const Page: React.FC = () => {
     grid: { top: 8, right: 8, bottom: 24, left: 36 },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      data: ['09:10am', '09:11am', '09:12am', '09:13am', '09:14am', '09:15am', '09:16am'],
     },
     yAxis: {
       type: 'value',

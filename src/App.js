@@ -8,6 +8,7 @@ import { sortData } from './utlis';
 //
 import ReactECharts from 'echarts-for-react';
 import LineGraph from './LineGraph'
+import TqsGraph from './TqsGraph'
 import StateChartline from './StateChartline'
 import Page from './Page'
 
@@ -109,12 +110,27 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
+          <TqsGraph/>        
         </CardContent>
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
+          <LineGraph/>        
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <Page/>        
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <Page/>        
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <Page/>        
         </CardContent>
         <CardContent>
          {/* Graphs */}
@@ -125,21 +141,6 @@ function App() {
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
           <StateChart-line />
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <LineGraph />
         </CardContent>
 
 
@@ -155,8 +156,9 @@ function App() {
         </CardContent>
         {/* Graphs */}
         <CardContent>
-          <h3>Worldwide new cases</h3>
-          <LineGraph />
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <Page/>        
         </CardContent>
       </Card>
     </div>
