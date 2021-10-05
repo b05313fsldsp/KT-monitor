@@ -31,7 +31,7 @@ const options = {
       {
         type: "time",
         time: {
-          format: "MM/DD/YY",
+          format: "HH:mm",
           tooltipFormat: "ll",
         },
       },
@@ -52,19 +52,44 @@ const options = {
   },
 };
 
+/*
 const buildChartData = (data) => {
   let chartData = [];
   let lastDataPoint;
+  // const obj = JSON.parse(data)
+  // const obj = JSON.stringify(data)
   for (let tqs in data) {
+     // console.log(tqs);
      let newDataPoint = {
-        x: tqs[1],
-        y: tqs[0],
+        x: tqs[0],
+        y: tqs[4],
       };
       chartData.push(newDataPoint);
     }
   
   return chartData;
 };
+*/
+
+
+const buildChartData = (data) => {
+  let chartData = [];
+  let lastDataPoint;
+  const time = JSON.parse(data).TTIMESTAMP
+  const SPN1761 = JSON.parse(data).SPN1761
+  // const obj = JSON.stringify(data)
+  for (let time in data) {
+     console.log(time);
+     let newDataPoint = {
+        x: time,
+        y: SPN1761[time],
+      };
+      chartData.push(newDataPoint);
+    }
+  
+  return chartData;
+};
+
 
 /* dc-
 const buildChartData = (data, casesType = "cases") => {
@@ -101,7 +126,7 @@ function TqsGraph({ casesType }) {
           return response.json();
         })
         .then((data) => {
-          let chartData = buildChartData(data, casesType);
+          let chartData = buildChartData(data);
           setData(chartData);
           // console.log(chartData);
           console.log(chartData);
@@ -119,8 +144,8 @@ function TqsGraph({ casesType }) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(204, 16, 52, 0.5)",
-                borderColor: "#CC1034",
+                backgroundColor: "rgba(077, 76, 57, 0.5)",
+                borderColor: "#CC1077",
                 data: data,
               },
             ],
