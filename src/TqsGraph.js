@@ -52,19 +52,17 @@ const options = {
   },
 };
 
-const buildChartData = (data, casesType = "TTIMESTAMP") => {
+const buildChartData = (data) => {
   let chartData = [];
   let lastDataPoint;
-  for (let ttime in data.cases) {
-    if (lastDataPoint) {
-      let newDataPoint = {
-        x: ttime,
-        y: data[casesType][ttime] - lastDataPoint,
+  for (let tqs in data) {
+     let newDataPoint = {
+        x: tqs[1],
+        y: tqs[0],
       };
       chartData.push(newDataPoint);
     }
-    lastDataPoint = data[casesType][ttime];
-  }
+  
   return chartData;
 };
 
@@ -100,14 +98,13 @@ function TqsGraph({ casesType }) {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
       await fetch("http://localhost:8081/api/tqs")
         .then((response) => {
-          console.log(response);
           return response.json();
         })
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
+          // console.log(chartData);
           console.log(chartData);
-         
           // buildChart(chartData);
         });
     };
