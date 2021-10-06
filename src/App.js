@@ -5,10 +5,13 @@ import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
 import { sortData } from './utlis';
-//
+//dc-
 import ReactECharts from 'echarts-for-react';
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+
 import LineGraph from './LineGraph'
-import TqsGraph from './TqsGraph'
+import TqsGraph from './TqsGraph'  
+import GeneralLineChart from './TqsGraph'  
 import StateChartline from './StateChartline'
 import Page from './Page'
 
@@ -78,6 +81,8 @@ function App() {
   //dc- console.log("CountryInfo", countryInfo)
   // console.log("CountryInfo", countryInfo)
            // {console.log({TqsGraph.})}
+  // a.
+  // aaa. <GeneralLineChart state={this.props.state} />
 
   return (
     <div className="app"> {/* BEM naming convention */}
@@ -111,18 +116,21 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
-          <TqsGraph          
-           />        
+          
+          <TqsGraph/>
+
+
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>TQS Online Data Monitoring ... </h3>
+          <TqsGraph/>
+                  
         </CardContent>
         <CardContent>
          {/* Graphs */}
           <h3>TQS Online Data Monitoring ... </h3>
           <LineGraph/>        
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <Page/>        
         </CardContent>
         <CardContent>
          {/* Graphs */}

@@ -52,17 +52,21 @@ const options = {
   },
 };
 
-/*
+
+/* dc- No good way xd
 const buildChartData = (data) => {
   let chartData = [];
   let lastDataPoint;
-  // const obj = JSON.parse(data)
-  // const obj = JSON.stringify(data)
+  const obj = JSON.stringify(data)
+  console.log(obj[0], obj[1], obj[2], obj[3], obj[4], obj[5]);
+
   for (let tqs in data) {
-     // console.log(tqs);
+
+    // console.log(obj[tqs]);
+    // console.log(data[1]);
      let newDataPoint = {
-        x: tqs[0],
-        y: tqs[4],
+        x: tqs[3], //time,
+        y: tqs[4], //SPN1761,
       };
       chartData.push(newDataPoint);
     }
@@ -71,24 +75,46 @@ const buildChartData = (data) => {
 };
 */
 
-
 const buildChartData = (data) => {
   let chartData = [];
-  let lastDataPoint;
-  const time = JSON.parse(data).TTIMESTAMP
-  const SPN1761 = JSON.parse(data).SPN1761
-  // const obj = JSON.stringify(data)
-  for (let time in data) {
-     console.log(time);
+
+  for (let tqs in data) {
+
      let newDataPoint = {
-        x: time,
-        y: SPN1761[time],
+        x: data[tqs].TTIMESTAMP, //time : 4,
+        y: data[tqs].SPN1761, //SPN1761 : 3,
       };
       chartData.push(newDataPoint);
     }
   
   return chartData;
 };
+
+
+
+
+/*
+const buildChartData = (data, casesType = "SPN1761") => {
+  let chartData = [];
+  let lastDataPoint;
+
+  console.log(data);
+
+  for (let tqs in data.SPN1761) {
+     // SPN1761 = data[tqs][3]; //dc- fail ??
+     console.log(data);
+     // console.log(SPN1761);
+
+     let newDataPoint = {
+        x: tqs,
+        y: data[casesType][tqs],
+      };
+      chartData.push(newDataPoint);
+    }
+
+  return chartData;
+};
+*/
 
 
 /* dc-
