@@ -53,17 +53,26 @@ const Page: React.FC = () => {
           var chartData = buildChartData(data);
           setData(chartData);
 
-          for (let index in chartData) {
+          //dc-
+          //console.log(chartData);
+          /*for (let index in chartData) {
             console.log(chartData[index].x);
             console.log(chartData[index].y);
 
            }
+           */
+
         });
     };
           
        fetchData();
+  
+       // console.log(chartData);
+
   });
 
+
+  
 
   const lineoptions = {
 

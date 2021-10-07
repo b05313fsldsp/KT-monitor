@@ -104,6 +104,9 @@ const buildChartData = (data, casesType = "cases") => {
 */
 
 function TqsGraph({ casesType }) {
+
+  var chartData = [];
+
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -115,7 +118,7 @@ function TqsGraph({ casesType }) {
           return response.json();
         })
         .then((data) => {
-          let chartData = buildChartData(data);
+          var chartData = buildChartData(data);
           setData(chartData);
           // console.log(chartData);
           // console.log(chartData);
@@ -124,6 +127,10 @@ function TqsGraph({ casesType }) {
     };
 
     fetchData();
+
+    console.log(chartData);
+
+
   }, [casesType]);
 
   return (
