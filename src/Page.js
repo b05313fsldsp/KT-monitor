@@ -1,19 +1,85 @@
-import React from 'react';
+
 import ReactECharts from 'echarts-for-react';
+import React, { useState, useEffect } from "react";
+
+// var x = [];
+// var y = [];
+var chartData = [];
+
+const buildChartData = (data) => {
+    let chartData = [];
+
+    for (let tqs in data) {
+
+       var newDataPoint = {
+          x: data[tqs].TTIMESTAMP, //time : 4,
+          y: data[tqs].SPN1761, //SPN1761 : 3,
+        };
+
+
+        chartData.push(newDataPoint);
+        
+        // console.log(chartData);
+
+        for (let index in chartData) {
+
+          // console.log(chartData[index].x);
+          // console.log(chartData[index].y);
+
+        }
+      }
+    
+    return chartData;
+};
+
+
 
 const Page: React.FC = () => {
-  const options = {
+
+  var aaa = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var bbb = [1, 2, 3, 4, 5, 6, 6, 4, 3, 2]
+  var chartData = [];
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
+      await fetch("http://localhost:8081/api/tqs")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          var chartData = buildChartData(data);
+          setData(chartData);
+
+          for (let index in chartData) {
+            console.log(chartData[index].x);
+            console.log(chartData[index].y);
+
+           }
+        });
+    };
+          
+       fetchData();
+  });
+
+
+  const lineoptions = {
+
+
+
     grid: { top: 8, right: 8, bottom: 24, left: 36 },
     xAxis: {
       type: 'category',
-      data: ['09:10am', '09:11am', '09:12am', '09:13am', '09:14am', '09:15am', '09:16am'],
+      data: aaa,
     },
     yAxis: {
       type: 'value',
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: bbb,
         type: 'line',
         smooth: true,
       },
@@ -23,7 +89,10 @@ const Page: React.FC = () => {
     },
   };
 
-  return <ReactECharts option={options} />;
+  return <ReactECharts option={lineoptions} />;
 };
 
 export default Page;
+
+
+

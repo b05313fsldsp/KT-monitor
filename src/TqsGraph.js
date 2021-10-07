@@ -53,68 +53,31 @@ const options = {
 };
 
 
-/* dc- No good way xd
-const buildChartData = (data) => {
-  let chartData = [];
-  let lastDataPoint;
-  const obj = JSON.stringify(data)
-  console.log(obj[0], obj[1], obj[2], obj[3], obj[4], obj[5]);
-
-  for (let tqs in data) {
-
-    // console.log(obj[tqs]);
-    // console.log(data[1]);
-     let newDataPoint = {
-        x: tqs[3], //time,
-        y: tqs[4], //SPN1761,
-      };
-      chartData.push(newDataPoint);
-    }
-  
-  return chartData;
-};
-*/
 
 const buildChartData = (data) => {
   let chartData = [];
 
   for (let tqs in data) {
 
-     let newDataPoint = {
+     var newDataPoint = {
         x: data[tqs].TTIMESTAMP, //time : 4,
         y: data[tqs].SPN1761, //SPN1761 : 3,
       };
       chartData.push(newDataPoint);
     }
-  
+
+    // console.log(chartData);
+    /*
+      for (let index in chartData) {
+
+        console.log(chartData[index].x);
+        console.log(chartData[index].y);
+
+      }
+    */
   return chartData;
 };
 
-
-
-
-/*
-const buildChartData = (data, casesType = "SPN1761") => {
-  let chartData = [];
-  let lastDataPoint;
-
-  console.log(data);
-
-  for (let tqs in data.SPN1761) {
-     // SPN1761 = data[tqs][3]; //dc- fail ??
-     console.log(data);
-     // console.log(SPN1761);
-
-     let newDataPoint = {
-        x: tqs,
-        y: data[casesType][tqs],
-      };
-      chartData.push(newDataPoint);
-    }
-
-  return chartData;
-};
-*/
 
 
 /* dc-
@@ -155,7 +118,7 @@ function TqsGraph({ casesType }) {
           let chartData = buildChartData(data);
           setData(chartData);
           // console.log(chartData);
-          console.log(chartData);
+          // console.log(chartData);
           // buildChart(chartData);
         });
     };
