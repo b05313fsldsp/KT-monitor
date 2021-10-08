@@ -54,13 +54,14 @@ const Page: React.FC = () => {
           setData(chartData);
 
           //dc-
-          //console.log(chartData);
-          /*for (let index in chartData) {
-            console.log(chartData[index].x);
-            console.log(chartData[index].y);
+          // console.log(`data` + data);
+          for (let index in chartData) { // chartData
+            console.log(chartData[index].x);  // console.log(chartData[index].x);
+
+            console.log(chartData[index].y); // console.log(chartData[index].y);
 
            }
-           */
+          
 
         });
     };
@@ -81,16 +82,16 @@ const Page: React.FC = () => {
     grid: { top: 8, right: 8, bottom: 24, left: 36 },
     xAxis: {
       type: 'category',
-      data: aaa,
+      data: chartData.x,
     },
     yAxis: {
       type: 'value',
     },
     series: [
       {
-        data: bbb,
+        data: chartData.x,
         type: 'line',
-        smooth: true,
+        smooth: false,
       },
     ],
     tooltip: {

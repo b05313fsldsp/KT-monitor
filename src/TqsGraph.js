@@ -39,13 +39,13 @@ const options = {
     yAxes: [
       {
         gridLines: {
-          display: false,
+          display: true,
         },
         ticks: {
           // Include a dollar sign in the ticks
-          callback: function (value, index, values) {
+          /* callback: function (value, index, values) {
             return numeral(value).format("0a");
-          },
+          },*/
         },
       },
     ],
@@ -128,7 +128,8 @@ function TqsGraph({ casesType }) {
 
     fetchData();
 
-    console.log(chartData);
+    //dc-
+    // console.log(chartData);
 
 
   }, [casesType]);
