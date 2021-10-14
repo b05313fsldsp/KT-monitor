@@ -11,9 +11,12 @@ import ReactEchartsCore from 'echarts-for-react/lib/core';
 
 import LineGraph from './LineGraph'
 import TqsGraph from './TqsGraph'  
+import MtqsGraph from './MtqsGraph'  // MtqsGraph 
 import GeneralLineChart from './TqsGraph'  
 import StateChartline from './StateChartline'
 import Page from './Page'
+import { Line } from "react-chartjs-2";
+
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -111,21 +114,17 @@ function App() {
           <InfoBox title="Defeat" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
-        <CardContent>
-         {/* Graphs */}
-          <h3>MTQS Online Data Monitoring ... </h3>
-
-        <canvas id="mtqschart"></canvas>
-
-        </CardContent>
 
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Log Data Monitoring ... </h3>
+          <h3>TQS Dynamally Data Monitoring ... </h3>
+
           
-          <TqsGraph/>
 
-
+          <MtqsGraph/> 
+          {/* <MtqsGraph/> */}
+          {/* <button onClick={timerStart}>Start</button> */}
+         
         </CardContent>
         <CardContent>
          {/* Graphs */}
