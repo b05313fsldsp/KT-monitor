@@ -112,7 +112,8 @@ function TqsGraph({ casesType }) {
   useEffect(() => {
     const fetchData = async () => {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://10.3.1.93:8081/monitor/tqs") // http://10.3.1.93:8081/monitor/tqs
+      // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
+      await fetch("http://localhost:8081/monitor/tqs")
         .then((response) => {
           return response.json();
         })
@@ -125,7 +126,7 @@ function TqsGraph({ casesType }) {
         });
     };
 
-     fetchData();
+    fetchData();
 
     //dc-
     // console.log(chartData);

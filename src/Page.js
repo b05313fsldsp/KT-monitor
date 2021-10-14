@@ -44,24 +44,14 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://localhost:8081/api/tqs")
+      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
+      // await fetch("http://localhost:8081/monitor/tqs")
         .then((response) => {
           return response.json();
         })
         .then((data) => {
           var chartData = buildChartData(data);
-          setData(chartData);
-
-          //dc-
-          // console.log(`data` + data);
-          for (let index in chartData) { // chartData
-            console.log(chartData[index].x);  // console.log(chartData[index].x);
-
-            console.log(chartData[index].y); // console.log(chartData[index].y);
-
-           }
-          
+          setData(chartData);       
 
         });
     };

@@ -111,11 +111,17 @@ function App() {
           <InfoBox title="Defeat" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
-       
+        <CardContent>
+         {/* Graphs */}
+          <h3>MTQS Online Data Monitoring ... </h3>
+
+        <canvas id="mtqschart"></canvas>
+
+        </CardContent>
 
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
+          <h3>TQS Log Data Monitoring ... </h3>
           
           <TqsGraph/>
 
@@ -123,34 +129,14 @@ function App() {
         </CardContent>
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
+          <h3>TQS Log Data Monitoring ... </h3>
           <TqsGraph/>
                   
         </CardContent>
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
+          <h3>API Online Data Monitoring ... </h3>
           <LineGraph/>        
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <Page/>        
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <Page/>        
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <Page/>        
-        </CardContent>
-        <CardContent>
-         {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <StateChart-line />
         </CardContent>
 
 
@@ -167,8 +153,8 @@ function App() {
         {/* Graphs */}
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Online Data Monitoring ... </h3>
-          <Page/>        
+          <h3>API Log Data Monitoring ... </h3>
+          <TqsGraph/>
         </CardContent>
       </Card>
     </div>
