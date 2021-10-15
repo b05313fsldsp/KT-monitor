@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
-
 const options = {
   legend: {
     display: false,
@@ -61,76 +60,64 @@ const buildChartData = (data) => {
 };
 
 
-const useCounter = () => {
-  const initState = {
-    count: 0,
-    start: false,
-    times: 1
-  };
-  let [count, setCount] = useState(initState.count);
-  let [start, setStart] = useState(initState.start);
-  let [times, setTimes] = useState(initState.times);
-  const timerStart = () => setStart(true);
-  const timerStop = () => setStart(false);
-  const reset = () => {
-    setCount(initState.count);
-    setStart(initState.start);
-    setTimes(initState.times);
-  };
+/*
+      const api_url = 'http://10.3.1.93:8081/monitor/tqs';
 
-  useEffect(
-    () => {
-      if (!start) {
-        return;
+      let firstTime = true;
+
+      async function getISS() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const { concentration, tqstimestamps } = data;
+
+        marker.setLatLng([concentration, tqstimestamps]);
+        if (firstTime) {
+          mymap.setView([concentration, tqstimestamps], 2);
+          firstTime = false;
+        }
+        document.getElementById('con').textContent = concentration.toFixed(2);
+        document.getElementById('time').textContent = tqstimestamps.toFixed(2);
       }
-      let id = setInterval(() => {
-        setCount(count => count + 1);
-      }, 1000 / times);
-      return () => clearInterval(id);
-    },
-    [start, times]
-  );
-  return {
-    count,
-    start,
-    times,
-    timerStart,
-    timerStop,
-    reset
-  };
-};
+
+      getISS();
+
+      setInterval(getISS, 1000);
+
+*/
 
 
 
-function MtqsGraph() {
+function MtqsGraph({ casesType }) {
 
   var chartData = [];
 
   const [data, setData] = useState({});
+  const api_url = 'http://10.3.1.93:8081/monitor/tqs';
+  let firstTime = true;
 
   useEffect(() => {
     const fetchData = async () => {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://localhost:8081/monitor/tqs")
+      await fetch(api_url)
         .then((response) => {
           return response.json();
         })
         .then((data) => {
+        if (firstTime) {
           var chartData = buildChartData(data);
           setData(chartData);
+          firstTime = false;
+        }
         });
     };
 
     fetchData();
+    setInterval(fetchData, 1000);
 
-  });
 
-  const {
-    count,
-    timerStart,
-    timerStop,
-    reset
-  } = useCounter();
+
+  }, [casesType]);
+
   return (
     <div>
       {data?.length > 0 && (
@@ -147,16 +134,8 @@ function MtqsGraph() {
           options={options}
         />
       )}
-
-      <div className="display">{count}</div>
-      <button onClick={timerStart}>Start</button>
-      <button onClick={timerStop}>Pause</button>
-      <button onClick={reset}>Reset</button>
-
-
     </div>
   );
-
 }
 
 export default MtqsGraph;

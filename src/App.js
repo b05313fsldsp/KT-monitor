@@ -119,9 +119,8 @@ function App() {
          {/* Graphs */}
           <h3>TQS Dynamally Data Monitoring ... </h3>
 
-          
+          <MtqsGraph/>
 
-          <MtqsGraph/> 
           {/* <MtqsGraph/> */}
           {/* <button onClick={timerStart}>Start</button> */}
          
