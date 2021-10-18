@@ -129,10 +129,21 @@ function TqsGraph({ casesType }) {
      fetchData();
 
     //dc-
-    // console.log(chartData);
+    // setInterval(fetchData, 1000);
+
 
 
   }, [casesType]);
+
+  /*
+              datasets: [
+              {
+                backgroundColor: "rgba(077, 76, 57, 0.5)",
+                borderColor: "#CC1077",
+                data: data,
+              },
+            ],
+*/
 
   return (
     <div>
@@ -141,8 +152,8 @@ function TqsGraph({ casesType }) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(077, 76, 57, 0.5)",
-                borderColor: "#CC1077",
+                backgroundColor: "rgba(0,0,0,0)",
+                borderColor: "#F71111",
                 data: data,
               },
             ],

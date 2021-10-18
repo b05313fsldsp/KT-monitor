@@ -26,7 +26,7 @@ const options = {
       {
         type: "time",
         time: {
-          format: "HH:mm",
+          format: "hh:mm:ss", // "HH:mm",
           tooltipFormat: "ll",
         },
       },
@@ -50,8 +50,8 @@ const buildChartData = (data) => {
   for (let tqs in data) {
 
      var newDataPoint = {
-        x: data[tqs].tqstimestamps, //time : 4,
-        y: data[tqs].concentration, //SPN1761 : 3,
+        x: data[tqs].tqstimestamps, // time : 4,
+        y: data[tqs].temp2, // temp2, concentration, SPN1761 : 3,
       };
       chartData.push(newDataPoint);
     }
@@ -82,11 +82,26 @@ function MtqsGraph({ casesType }) {
     };
 
     fetchData();
+    //dc-
     setInterval(fetchData, 1000);
 
 
 
   }, [casesType]);
+
+
+
+  /*
+              datasets: [
+              {
+                backgroundColor: "rgba(077, 76, 57, 0.5)",
+                borderColor: "#CC1077",
+                data: data,
+              },
+            ],
+*/
+
+
 
   return (
     <div>
@@ -95,8 +110,8 @@ function MtqsGraph({ casesType }) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(077, 76, 57, 0.5)",
-                borderColor: "#CC1077",
+                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                borderColor: "#000001",
                 data: data,
               },
             ],
