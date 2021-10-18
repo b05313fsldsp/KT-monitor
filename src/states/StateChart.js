@@ -166,6 +166,10 @@ class StateChart extends React.Component {
 
     componentDidMount() {
         this.__initPlotlyJSCharts();
+        //dc-
+        this.timer = setInterval(()=> this.fetchData(), 1000)
+
+
     }
 
     async __initPlotlyJSCharts() {

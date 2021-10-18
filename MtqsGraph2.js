@@ -60,27 +60,34 @@ const buildChartData = (data) => {
 };
 
 
-
 function MtqsGraph({ casesType }) {
 
   var chartData = [];
 
   const [data, setData] = useState({});
+  const api_url = 'http://10.3.1.93:8081/monitor/tqs';
+  let firstTime = true;
 
   useEffect(() => {
     const fetchData = async () => {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://localhost:8081/monitor/tqs")
+      await fetch(api_url)
         .then((response) => {
           return response.json();
         })
         .then((data) => {
+        //if (firstTime) {
           var chartData = buildChartData(data);
           setData(chartData);
+          firstTime = false;
+        //}
         });
     };
 
     fetchData();
+    setInterval(fetchData, 1000);
+
+
 
   }, [casesType]);
 

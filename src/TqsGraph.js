@@ -63,6 +63,7 @@ const buildChartData = (data) => {
         x: data[tqs].tqstimestamps, //time : 4,
         y: data[tqs].concentration, //SPN1761 : 3,
       };
+      //setInteval 1/sec
       chartData.push(newDataPoint);
     }
 

@@ -60,40 +60,12 @@ const buildChartData = (data) => {
 };
 
 
-/*
-      const api_url = 'http://10.3.1.93:8081/monitor/tqs';
-
-      let firstTime = true;
-
-      async function getISS() {
-        const response = await fetch(api_url);
-        const data = await response.json();
-        const { concentration, tqstimestamps } = data;
-
-        marker.setLatLng([concentration, tqstimestamps]);
-        if (firstTime) {
-          mymap.setView([concentration, tqstimestamps], 2);
-          firstTime = false;
-        }
-        document.getElementById('con').textContent = concentration.toFixed(2);
-        document.getElementById('time').textContent = tqstimestamps.toFixed(2);
-      }
-
-      getISS();
-
-      setInterval(getISS, 1000);
-
-*/
-
-
-
 function MtqsGraph({ casesType }) {
 
   var chartData = [];
 
   const [data, setData] = useState({});
   const api_url = 'http://10.3.1.93:8081/monitor/tqs';
-  let firstTime = true;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,11 +75,9 @@ function MtqsGraph({ casesType }) {
           return response.json();
         })
         .then((data) => {
-        if (firstTime) {
           var chartData = buildChartData(data);
           setData(chartData);
-          firstTime = false;
-        }
+          console.log(chartData);
         });
     };
 
