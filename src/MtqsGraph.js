@@ -51,7 +51,7 @@ const buildChartData = (data) => {
 
      var newDataPoint = {
         x: data[tqs].tqstimestamps, // time : 4,
-        y: data[tqs].temp2, // temp2, concentration, SPN1761 : 3,
+        y: data[tqs].concentration, // temp2, concentration, SPN1761 : 3,
       };
       chartData.push(newDataPoint);
     }
@@ -65,7 +65,7 @@ function MtqsGraph({ casesType }) {
   var chartData = [];
 
   const [data, setData] = useState({});
-  const api_url = 'http://10.3.1.93:8081/monitor/tqs';
+  const api_url = 'http://10.3.1.2:8081/monitor/tqs';
 
   useEffect(() => {
     const fetchData = async () => {

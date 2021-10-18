@@ -128,7 +128,7 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Log Data Monitoring ... </h3>
-          <TqsGraph/>
+          <MtqsGraph/>
                   
         </CardContent>
         <CardContent>
