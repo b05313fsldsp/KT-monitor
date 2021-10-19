@@ -60,7 +60,7 @@ const buildChartData = (data) => {
 };
 
 
-function MtqsGraph({ casesType }) {
+function Concentration({ casesType }) {
 
   var chartData = [];
 
@@ -83,7 +83,7 @@ function MtqsGraph({ casesType }) {
 
     fetchData();
     //dc-
-    setInterval(fetchData, 5000);
+    setInterval(fetchData, 200);
 
 
 
@@ -123,5 +123,5 @@ function MtqsGraph({ casesType }) {
   );
 }
 
-export default MtqsGraph;
+export default Concentration;
 

@@ -51,7 +51,7 @@ const buildChartData = (data) => {
 
      var newDataPoint = {
         x: data[tqs].tqstimestamps, // time : 4,
-        y: data[tqs].concentration, //+ Math.random(10), // temp2, concentration, SPN1761 : 3,
+        y: data[tqs].tanklevel, // concentration, //+ Math.random(10), // temp2, concentration, SPN1761 : 3,
       };
       chartData.push(newDataPoint);
     }
@@ -60,7 +60,7 @@ const buildChartData = (data) => {
 };
 
 
-function MtqsGraph({ casesType }) {
+function Tanklevel({ casesType }) {
 
   var chartData = [];
 
@@ -83,7 +83,7 @@ function MtqsGraph({ casesType }) {
 
     fetchData();
     //dc-
-    setInterval(fetchData, 5000);
+    setInterval(fetchData, 200);
 
 
 
@@ -123,5 +123,5 @@ function MtqsGraph({ casesType }) {
   );
 }
 
-export default MtqsGraph;
+export default Tanklevel;
 

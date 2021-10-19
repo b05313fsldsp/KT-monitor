@@ -12,6 +12,10 @@ import ReactEchartsCore from 'echarts-for-react/lib/core';
 import LineGraph from './LineGraph'
 import TqsGraph from './TqsGraph'  
 import MtqsGraph from './MtqsGraph'  // MtqsGraph 
+import Tanklevel from './Tanklevel'
+import Concentration from './Concentration'
+
+
 import GeneralLineChart from './TqsGraph'  
 import StateChartline from './StateChartline'
 import Page from './Page'
@@ -119,7 +123,7 @@ function App() {
          {/* Graphs */}
           <h3>TQS Dynamally Data Monitoring ... </h3>
 
-          <MtqsGraph/>
+          <Tanklevel/>
 
           {/* <MtqsGraph/> */}
           {/* <button onClick={timerStart}>Start</button> */}
@@ -128,7 +132,7 @@ function App() {
         <CardContent>
          {/* Graphs */}
           <h3>TQS Log Data Monitoring ... </h3>
-          <MtqsGraph/>
+          <Concentration/>
                   
         </CardContent>
         <CardContent>
