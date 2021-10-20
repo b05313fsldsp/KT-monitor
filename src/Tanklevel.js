@@ -65,7 +65,7 @@ function Tanklevel({ casesType }) {
   var chartData = [];
 
   const [data, setData] = useState({});
-  const api_url = 'http://10.3.1.2:8081/monitor/tqs';
+  const api_url = 'http://10.3.1.93:8081/monitor/tqs';
 
   useEffect(() => {
     const fetchData = async () => {

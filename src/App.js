@@ -121,7 +121,7 @@ function App() {
 
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Dynamally Data Monitoring ... </h3>
+          <h3>Tanklevel Data Monitoring ... </h3>
 
           <Tanklevel/>
 
@@ -131,19 +131,19 @@ function App() {
         </CardContent>
         <CardContent>
          {/* Graphs */}
-          <h3>TQS Log Data Monitoring ... </h3>
+          <h3>Concentration Monitoring ... </h3>
           <Concentration/>
                   
         </CardContent>
         <CardContent>
          {/* Graphs */}
-          <h3>API Online Data Monitoring ... </h3>
-          <LineGraph/>        
+          {/*<h3>API Online Data Monitoring ... </h3>*/}
+          {/*<LineGraph/>*/}        
         </CardContent>
 
 
         {/* Map */}
-        <Map />
+        {/*<Map />*/}
       </div>
       
       <Card className="app__right">
@@ -155,8 +155,13 @@ function App() {
         {/* Graphs */}
         <CardContent>
          {/* Graphs */}
-          <h3>API Log Data Monitoring ... </h3>
-          <TqsGraph/>
+          <h3>Tanklevel Data Monitoring ... </h3>
+          <Tanklevel/>
+        </CardContent>
+        <CardContent>
+         {/* Graphs */}
+          <h3>Concentration Data Monitoring ... </h3>
+          <Concentration/>
         </CardContent>
       </Card>
     </div>

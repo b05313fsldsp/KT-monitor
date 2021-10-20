@@ -113,7 +113,7 @@ function TqsGraph({ casesType }) {
   useEffect(() => {
     const fetchData = async () => {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch("http://10.3.1.2:8081/monitor/tqs") // http://10.3.1.93:8081/monitor/tqs
+      await fetch("http://10.3.1.93:8081/monitor/tqs") // http://10.3.1.93:8081/monitor/tqs
         .then((response) => {
           return response.json();
         })
