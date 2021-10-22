@@ -77,7 +77,8 @@ function Tanklevel({ casesType }) {
         .then((data) => {
           var chartData = buildChartData(data);
           setData(chartData);
-          console.log(chartData);
+          //dc-
+          // console.log(chartData);
         });
     };
 

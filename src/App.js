@@ -25,6 +25,9 @@ import { Line } from "react-chartjs-2";
 function App() {
   const [countries, setCountries] = useState([])
   const [country, setCountry] = useState('Worldwide')
+  //dc-
+  const [tqs, setTqs] = useState('TQS')
+
   const [countryInfo, setCountryInfo] = useState({})
   const [tableData, setTableData] = useState([])
 
@@ -43,6 +46,7 @@ function App() {
     //async -> send the requets, wait for it, and then do something about the info
 
     // going to making "Promises" here below
+    /*
     const getCountriesData = async () => {
       await fetch("https://disease.sh/v3/covid-19/countries")
         .then((responce) => responce.json())
@@ -58,7 +62,9 @@ function App() {
             name: country.country, //United Kingdom, Unites States Of America, India,
             value: country.countryInfo.iso2 //UK, USA, IND
           }));
-          
+          //dc-
+          console.log(countries);
+
           const sortedData = sortData(data);
           setTableData(sortedData);
           setCountries(countries);
@@ -66,6 +72,61 @@ function App() {
     };
     getCountriesData();
   }, []);
+    */
+
+      // going to making "Promises" here below
+
+    const getCountriesData = async () => {
+      await fetch("http://10.3.1.93:8081/monitor/tqs")  // https://disease.sh/v3/covid-19/countries
+        .then((responce) => responce.json())
+        .then((data) => {
+          
+         const countries = data.map((tqs) => ({
+            // name: tqs.sn, //United Kingdom, Unites States Of America, India,
+            value: tqs.status, //UK, USA, IND
+            value2: tqs.tanklevel, //UK, USA, IND
+            value3: tqs.concentration //UK, USA, IND
+          }));
+          //dc-
+          // const contentLength = responce.headers.get('content-length')
+          // console.log(contentLength);
+
+          console.log(countries);
+          setCountries(countries);
+
+        });
+    };
+    
+    // getCountriesData();
+
+
+    //dc- get header data 
+    const getHearderData = async () => {
+      await fetch("http://10.3.1.93:8081/monitor/tqs")  // https://disease.sh/v3/covid-19/countries
+        .then(
+          (responce) => {
+
+          var contentType = responce.headers.get('content-type')
+          console.log(contentType);
+
+          var contentLength = responce.headers.get('content-length')
+          console.log(contentLength);
+   //dc- sn
+          var sn = responce.headers.get('sn')
+          console.log(sn);
+
+
+          }
+
+
+                    )
+    };
+
+    getHearderData();
+
+
+  }, []);
+
 
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
@@ -101,21 +162,18 @@ function App() {
           {/* Title + Dropdown */}
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
-            <MenuItem value="Worldwide">Worldwide</MenuItem>
+            <MenuItem value="Worldwide">TQS</MenuItem>
               {countries.map((country) =>
                 <MenuItem value={country.value}>{country.name}</MenuItem>)}
-              {/* <MenuItem value="worldwide">Worldwide</MenuItem>
-              <MenuItem value="worldwide">Option 2</MenuItem>
-              <MenuItem value="worldwide">Yasssss</MenuItem> */}
             </Select>
           </FormControl>
         </div>
 
         {/* Infoboxes */}
         <div className="app__stats">
-          <InfoBox title="Monitor Cases" cases={countryInfo.todayCases} total={countryInfo.cases} /> 
-          <InfoBox title="Online" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-          <InfoBox title="Defeat" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
+          {/*<InfoBox title="Monitor Cases" cases={countryInfo.todayCases} total={countryInfo.cases} /> */}
+          <InfoBox title="Defeat" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
+          {/*<InfoBox title="Defeat" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />*/}
         </div>
 
 
@@ -148,10 +206,10 @@ function App() {
       
       <Card className="app__right">
         {/* Table */}
-        <CardContent>
+        {/*<CardContent>
           <h3>Live cases by country</h3>
           <Table countries={tableData} />
-        </CardContent>
+        </CardContent>*/}
         {/* Graphs */}
         <CardContent>
          {/* Graphs */}
