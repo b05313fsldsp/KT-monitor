@@ -67,10 +67,21 @@ function Tanklevel({ casesType }) {
   const [data, setData] = useState({});
   const api_url = 'http://10.3.1.93:8081/monitor/tqs';
 
+
+  /* 
+    const headers = { 'Content-Type': 'application/json' }  //dc- SN : xxxxxxx
+    fetch('https://api.npms.io/v2/search?q=react', { headers })
+        .then(response => response.json())
+        .then(data => this.setState({ totalReactPackages: data.total }));
+
+  */
+
   useEffect(() => {
+
+    const headers = { 'sn': 'XXXXXXXXXXXX' }  //dc- SN : XXXXXXXXXXXX
     const fetchData = async () => {
       // await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      await fetch(api_url)
+      await fetch(api_url, { headers })
         .then((response) => {
           return response.json();
         })

@@ -23,10 +23,10 @@ import { Line } from "react-chartjs-2";
 
 
 function App() {
-  const [countries, setCountries] = useState([])
+ // const [countries, setCountries] = useState([])
   const [country, setCountry] = useState('Worldwide')
   //dc-
-  const [tqs, setTqs] = useState('TQS')
+  const [tqss, setTqss] = useState([])
 
   const [countryInfo, setCountryInfo] = useState({})
   const [tableData, setTableData] = useState([])
@@ -76,53 +76,35 @@ function App() {
 
       // going to making "Promises" here below
 
-    const getCountriesData = async () => {
+    const getTqssData = async () => {
       await fetch("http://10.3.1.93:8081/monitor/tqs")  // https://disease.sh/v3/covid-19/countries
         .then((responce) => responce.json())
         .then((data) => {
           
-         const countries = data.map((tqs) => ({
-            // name: tqs.sn, //United Kingdom, Unites States Of America, India,
+          // [item1, item2, item3]
+
+          // ^^^ item1 ... -> returning an object in a shape
+          // ^^^ item2 ... -> returning an object in a shape
+          // ^^^ item2 ... -> returning an object in a shape
+
+          const tqss = data.map((tqs) => ({      // countries
+            name: tqs.sn, //United Kingdom, Unites States Of America, India,
             value: tqs.status, //UK, USA, IND
             value2: tqs.tanklevel, //UK, USA, IND
             value3: tqs.concentration //UK, USA, IND
           }));
           //dc-
-          // const contentLength = responce.headers.get('content-length')
-          // console.log(contentLength);
-
-          console.log(countries);
-          setCountries(countries);
+          console.log(tqss);
+/*
+          const sortedData = sortData(data);
+          setTableData(sortedData);
+*/
+          setTqss(tqss);
 
         });
     };
     
-    // getCountriesData();
-
-
-    //dc- get header data 
-    const getHearderData = async () => {
-      await fetch("http://10.3.1.93:8081/monitor/tqs")  // https://disease.sh/v3/covid-19/countries
-        .then(
-          (responce) => {
-
-          var contentType = responce.headers.get('content-type')
-          console.log(contentType);
-
-          var contentLength = responce.headers.get('content-length')
-          console.log(contentLength);
-   //dc- sn
-          var sn = responce.headers.get('sn')
-          console.log(sn);
-
-
-          }
-
-
-                    )
-    };
-
-    getHearderData();
+          getTqssData();
 
 
   }, []);
@@ -132,7 +114,6 @@ function App() {
     const countryCode = event.target.value;
 
     setCountry(countryCode);
-  
 
   const url =
     countryCode === 'worldwide' ? "https://disease.sh/v3/covid-19/countries/all" : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
@@ -163,8 +144,9 @@ function App() {
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
             <MenuItem value="Worldwide">TQS</MenuItem>
-              {countries.map((country) =>
-                <MenuItem value={country.value}>{country.name}</MenuItem>)}
+              {tqss.map((tqs) =>
+                <MenuItem value={tqs.value}>{tqs.name}</MenuItem>)}
+                {/*<MenuItem value={tqs.value}>{tqs.name}</MenuItem>)}*/}
             </Select>
           </FormControl>
         </div>
